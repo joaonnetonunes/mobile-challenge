@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Mobile Challenge</string>
+    <string name="convert_values">Converter valores</string>
+    <string name="available_currencies">Moedas disponíveis</string>
 </resources>
