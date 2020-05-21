@@ -1,9 +1,9 @@
-package com.joaoneto.mobilechallenge
+package com.joaoneto.mobilechallenge.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.navigation.NavigationView
-import java.util.function.ToDoubleBiFunction
+import com.joaoneto.mobilechallenge.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
                     return@setNavigationItemSelectedListener true
                 }
                 R.id.navigation_list -> {
-
                     return@setNavigationItemSelectedListener true
                 }
 
