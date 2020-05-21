@@ -1,5 +1,6 @@
 package com.joaoneto.mobilechallenge.retrofit
 
+import com.joaoneto.mobilechallenge.util.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -20,9 +21,11 @@ class RetrofitInitializer {
             .build()
 
         retrofit = Retrofit.Builder()
-            .baseUrl("https://api.currencylayer.com/")
+            .baseUrl(Constants.BASE_URL)
             .addConverterFactory(JacksonConverterFactory.create())
             .client(client)
             .build()
     }
+
+    fun liveCurrenciesService() = retrofit.create(LiveCurrenciesService::class.java)
 }
