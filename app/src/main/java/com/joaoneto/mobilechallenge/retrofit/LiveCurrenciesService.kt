@@ -1,6 +1,6 @@
 package com.joaoneto.mobilechallenge.retrofit
 
-import com.joaoneto.mobilechallenge.model.ApiCurrencyRequestModel
+import com.joaoneto.mobilechallenge.model.apiModel.ApiCurrencyRequestModel
 import com.joaoneto.mobilechallenge.util.Constants
 import retrofit2.Call
 import retrofit2.http.GET
