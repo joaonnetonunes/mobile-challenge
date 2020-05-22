@@ -1,5 +1,6 @@
-package com.joaoneto.mobilechallenge.model
+package com.joaoneto.mobilechallenge.model.apiModel
 
+import com.joaoneto.mobilechallenge.model.CurrencyModel
 import java.io.Serializable
 
 class ApiCurrencyRequestModel: Serializable {
