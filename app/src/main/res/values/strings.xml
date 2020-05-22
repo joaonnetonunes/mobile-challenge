@@ -2,4 +2,7 @@
     <string name="app_name">Mobile Challenge</string>
     <string name="convert_values">Converter valores</string>
     <string name="available_currencies">Moedas disponíveis</string>
+    <string name="error">Oops, parece que ocorreu um erro ao carregar os dados</string>
+    <string name="try_again">Tentar Novamente</string>
+    <string name="exit">Sair</string>
 </resources>
