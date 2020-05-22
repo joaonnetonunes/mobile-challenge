@@ -1,7 +1,6 @@
-package com.joaoneto.mobilechallenge.view
+package com.joaoneto.mobilechallenge.view.activity
 
 import android.content.Intent
-import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler

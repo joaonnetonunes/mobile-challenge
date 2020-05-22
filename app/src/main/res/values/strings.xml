@@ -5,4 +5,12 @@
     <string name="error">Oops, parece que ocorreu um erro ao carregar os dados</string>
     <string name="try_again">Tentar Novamente</string>
     <string name="exit">Sair</string>
+    <string name="value">Valor</string>
+    <string name="text_select_input">Moeda de entrada:</string>
+    <string name="text_select_output">Moeda de saída</string>
+    <string name="convert">Converter</string>
+    <string name="type_code">Digite o código da moeda</string>
+    <string name="search">Buscar</string>
+    <string name="usd">USD</string>
+    <string name="five">5,50</string>
 </resources>
