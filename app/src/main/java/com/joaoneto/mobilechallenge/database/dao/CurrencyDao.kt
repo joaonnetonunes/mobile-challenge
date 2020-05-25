@@ -8,8 +8,9 @@ import com.joaoneto.mobilechallenge.model.roomModel.RoomCurrencyModel
 @Dao
 interface CurrencyDao {
 
-    @Query("SELECT * FROM currency")
+    @Query("SELECT * FROM RoomCurrencyModel")
     fun all(): List<RoomCurrencyModel>
+
 
     @Insert
     fun add(vararg currency: RoomCurrencyModel)

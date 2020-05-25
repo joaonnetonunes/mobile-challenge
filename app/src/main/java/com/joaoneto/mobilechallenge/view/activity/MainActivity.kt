@@ -11,11 +11,11 @@ import com.joaoneto.mobilechallenge.util.Constants
 import com.joaoneto.mobilechallenge.view.fragment.ConversionFragment
 import com.joaoneto.mobilechallenge.view.fragment.ListCurrenciesFragment
 import com.joaoneto.mobilechallenge.view.fragment.SearchCurrenciesFragment
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var navigationView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,23 +26,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpNavigationView() {
-        navigationView.findViewById<NavigationView>(R.id.navigationView)
-        navigationView.setNavigationItemSelectedListener {
+        navigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.navigation_convertion -> {
                     supportActionBar?.title = Constants.APPBAR_TITTLE_CONVERSION
                     openFragment(ConversionFragment())
-                    return@setNavigationItemSelectedListener true
                 }
                 R.id.navigation_list -> {
                     supportActionBar?.title = Constants.APPBAR_TITTLE_LIST
                     openFragment(ListCurrenciesFragment())
-                    return@setNavigationItemSelectedListener true
                 }
                 R.id.navigation_search->{
                     openFragment(SearchCurrenciesFragment())
                     supportActionBar?.title = Constants.APPBAR_TITTLE_SEARCH
-                    return@setNavigationItemSelectedListener true
                 }
 
             }

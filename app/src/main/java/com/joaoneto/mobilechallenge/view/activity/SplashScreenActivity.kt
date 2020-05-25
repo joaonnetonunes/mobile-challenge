@@ -4,14 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import androidx.room.Room
+import android.util.Log
 import com.joaoneto.mobilechallenge.R
 import com.joaoneto.mobilechallenge.database.AppDatabase
 import com.joaoneto.mobilechallenge.model.apiModel.ApiCurrencyRequestModel
 import com.joaoneto.mobilechallenge.model.roomModel.RoomCurrencyModel
 import com.joaoneto.mobilechallenge.api.RetrofitInitializer
 import com.joaoneto.mobilechallenge.util.Constants
-import com.joaoneto.mobilechallenge.util.DoAsync
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,7 +22,8 @@ class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
-        setUpDatabase()
+
+        database = AppDatabase.create(this)
 
         Handler().postDelayed({
             getCurrencies()
@@ -42,7 +42,7 @@ class SplashScreenActivity : AppCompatActivity() {
         RetrofitInitializer().currenciesService().getCurrencies(apiMap)
             .enqueue(object : Callback<ApiCurrencyRequestModel> {
                 override fun onFailure(call: Call<ApiCurrencyRequestModel>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    Log.e("--->", t.message.toString())
                 }
 
                 override fun onResponse(
@@ -51,17 +51,20 @@ class SplashScreenActivity : AppCompatActivity() {
                 ) {
 
                     if(response.code()==200){
-                        val quotes = response.body()?.quotes
-                        quotes?.forEach {
+                        response.body()?.quotes?.also {
+                            quotes ->
+
                             var roomCurrencyModel: RoomCurrencyModel
 
                             for(i in 0 until quotes.size){
                                 i+1
-                                roomCurrencyModel = RoomCurrencyModel(i,it)
+                                roomCurrencyModel = RoomCurrencyModel(i,quotes[i].name!!, quotes[i].valuePerDollar!!)
                                 database.currencyDao().add(roomCurrencyModel)
                             }
+                        }
 
-                       }
+
+
                     }else{
                         startActivity(Intent(this@SplashScreenActivity, TryAgainActivity::class.java))
                         finish()
@@ -71,13 +74,4 @@ class SplashScreenActivity : AppCompatActivity() {
             })
     }
 
-    private fun setUpDatabase() {
-        DoAsync {
-            database = Room.databaseBuilder(
-                this,
-                AppDatabase::class.java,
-                "mobile-challenge-database"
-            ).build()
-        }
-    }
 }
