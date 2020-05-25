@@ -1,4 +1,4 @@
-package com.joaoneto.mobilechallenge.retrofit
+package com.joaoneto.mobilechallenge.api
 
 import com.joaoneto.mobilechallenge.util.Constants
 import okhttp3.OkHttpClient
@@ -27,5 +27,5 @@ class RetrofitInitializer {
             .build()
     }
 
-    fun liveCurrenciesService() = retrofit.create(LiveCurrenciesService::class.java)
+    fun currenciesService() = retrofit.create(CurrenciesService::class.java)
 }

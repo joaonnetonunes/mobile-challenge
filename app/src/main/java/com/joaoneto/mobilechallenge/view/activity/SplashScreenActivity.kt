@@ -9,7 +9,7 @@ import com.joaoneto.mobilechallenge.R
 import com.joaoneto.mobilechallenge.database.AppDatabase
 import com.joaoneto.mobilechallenge.model.apiModel.ApiCurrencyRequestModel
 import com.joaoneto.mobilechallenge.model.roomModel.RoomCurrencyModel
-import com.joaoneto.mobilechallenge.retrofit.RetrofitInitializer
+import com.joaoneto.mobilechallenge.api.RetrofitInitializer
 import com.joaoneto.mobilechallenge.util.Constants
 import com.joaoneto.mobilechallenge.util.DoAsync
 import retrofit2.Call
@@ -39,7 +39,7 @@ class SplashScreenActivity : AppCompatActivity() {
             Constants.SOURCE_STRING to Constants.SOURCE,
             Constants.FORMAT_STRING to Constants.FORMAT
         )
-        RetrofitInitializer().liveCurrenciesService().getLiveCurrencies(apiMap)
+        RetrofitInitializer().currenciesService().getCurrencies(apiMap)
             .enqueue(object : Callback<ApiCurrencyRequestModel> {
                 override fun onFailure(call: Call<ApiCurrencyRequestModel>, t: Throwable) {
                     TODO("Not yet implemented")
