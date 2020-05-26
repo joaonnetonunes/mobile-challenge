@@ -8,7 +8,7 @@
     android:layout_marginTop="8dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <TextView
-    android:id="@+id/textViewCurrencyISO4217"
+    android:id="@+id/text_view_currency"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="16dp"

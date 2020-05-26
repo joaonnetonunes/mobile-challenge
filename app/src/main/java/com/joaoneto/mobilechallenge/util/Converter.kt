@@ -1,22 +1,20 @@
 package com.joaoneto.mobilechallenge.util
 
-import com.joaoneto.mobilechallenge.model.roomModel.RoomCurrencyModel
+import com.joaoneto.mobilechallenge.data.model.RoomCurrency
 
-class Converter() {
+object Converter {
+    fun convert(
+        inputCurrency: RoomCurrency,
+        outputCurrency: RoomCurrency,
+        inputValue: Double
+    ): Double {
+        val inputCurrencyValue = inputCurrency.currencyValuePerDollar
+        val outputCurrencyValue = outputCurrency.currencyValuePerDollar
 
-    companion object {
-        fun convert(
-            inputCurrency: RoomCurrencyModel,
-            outputCurrency: RoomCurrencyModel,
-            inputValue: Double?
-        ): Double? {
-            val inputCurrencyValue = inputCurrency.currencyValuePerDollar
-            val outputCurrencyValue = outputCurrency.currencyValuePerDollar
+        //value = inputValue.times(inputValue)
 
-            val inputInDollar = inputCurrencyValue.let { inputValue?.times(it) }
+        val inputInDollar = inputValue.times(inputCurrencyValue)
 
-            return outputCurrencyValue.let { inputInDollar?.times(it) }
-        }
+        return inputInDollar.times(outputCurrencyValue)
     }
-
 }

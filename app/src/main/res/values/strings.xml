@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Mobile Challenge</string>
+
+    <string name="currencies_conversion">Conversão de moedas</string>
+    <string name="currencies_list">Listagem de moedas</string>
+    <string name="currencies_search">Busca de moedas</string>
+
+
     <string name="convert_values">Converter valores</string>
     <string name="available_currencies">Moedas disponíveis</string>
     <string name="error">Oops, parece que ocorreu um erro ao carregar os dados</string>
@@ -14,4 +20,5 @@
     <string name="usd">USD</string>
     <string name="five">5,50</string>
     <string name="search_new_currency">Buscar nova moeda</string>
+    <string name="action_try_again">Tentar novamente</string>
 </resources>
